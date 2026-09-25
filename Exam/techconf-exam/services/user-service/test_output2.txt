@@ -1,0 +1,101 @@
+﻿FF..F......FF........FFF.....F.........F                                 [100%]
+================================== FAILURES ===================================
+_______________________________ test_health_ok ________________________________
+tests\unit\test_api_users.py:94: in test_health_ok
+    assert_matches_contract("user-service", "GET", "/health", FlaskResponseAdapter(resp))
+..\..\contracts\validator.py:248: in assert_matches_contract
+    raise ContractError(
+E   contracts.validator.ContractError: GET /health -> 200 does not match user-service contract:
+E     - at '<root>': None is not of type 'object'
+__________________________ test_post_user_valid_201 ___________________________
+tests\unit\test_api_users.py:116: in test_post_user_valid_201
+    assert_matches_contract("user-service", "POST", "/api/v1/users", FlaskResponseAdapter(resp))
+..\..\contracts\validator.py:248: in assert_matches_contract
+    raise ContractError(
+E   contracts.validator.ContractError: POST /api/v1/users -> 201 does not match user-service contract:
+E     - at '<root>': None is not of type 'object'
+_________________________ test_post_user_bad_json_400 _________________________
+tests\unit\test_api_users.py:147: in test_post_user_bad_json_400
+    assert_matches_contract("user-service", "POST", "/api/v1/users", FlaskResponseAdapter(resp))
+..\..\contracts\validator.py:248: in assert_matches_contract
+    raise ContractError(
+E   contracts.validator.ContractError: POST /api/v1/users -> 400 does not match user-service contract:
+E     - at '<root>': None is not of type 'object'
+_____________________ test_post_user_duplicate_email_409 ______________________
+tests\unit\test_api_users.py:219: in test_post_user_duplicate_email_409
+    assert_matches_contract("user-service", "POST", "/api/v1/users", FlaskResponseAdapter(resp))
+..\..\contracts\validator.py:248: in assert_matches_contract
+    raise ContractError(
+E   contracts.validator.ContractError: POST /api/v1/users -> 409 does not match user-service contract:
+E     - at '<root>': None is not of type 'object'
+______________________ test_get_list_default_pagination _______________________
+tests\unit\test_api_users.py:245: in test_get_list_default_pagination
+    assert_matches_contract("user-service", "GET", "/api/v1/users", FlaskResponseAdapter(resp))
+..\..\contracts\validator.py:248: in assert_matches_contract
+    raise ContractError(
+E   contracts.validator.ContractError: GET /api/v1/users -> 200 does not match user-service contract:
+E     - at '<root>': None is not of type 'object'
+___________________________ test_get_user_by_id_200 ___________________________
+tests\unit\test_api_users.py:340: in test_get_user_by_id_200
+    assert_matches_contract(
+..\..\contracts\validator.py:248: in assert_matches_contract
+    raise ContractError(
+E   contracts.validator.ContractError: GET /api/v1/users/a22a14f3-e38d-4bde-a4e0-0fd78e2b1650 -> 200 does not match user-service contract:
+E     - at '<root>': None is not of type 'object'
+________________________ test_get_user_unknown_id_404 _________________________
+tests\unit\test_api_users.py:351: in test_get_user_unknown_id_404
+    assert_matches_contract(
+..\..\contracts\validator.py:248: in assert_matches_contract
+    raise ContractError(
+E   contracts.validator.ContractError: GET /api/v1/users/00000000-0000-0000-0000-000000000000 -> 404 does not match user-service contract:
+E     - at '<root>': None is not of type 'object'
+___________________________ test_put_user_valid_200 ___________________________
+tests\unit\test_api_users.py:385: in test_put_user_valid_200
+    assert_matches_contract(
+..\..\contracts\validator.py:248: in assert_matches_contract
+    raise ContractError(
+E   contracts.validator.ContractError: PUT /api/v1/users/f0ad6c46-c57f-48c4-bd20-5753d9a82fbf -> 200 does not match user-service contract:
+E     - at '<root>': None is not of type 'object'
+_________________________ test_patch_user_partial_200 _________________________
+tests\unit\test_api_users.py:469: in test_patch_user_partial_200
+    assert_matches_contract(
+..\..\contracts\validator.py:248: in assert_matches_contract
+    raise ContractError(
+E   contracts.validator.ContractError: PATCH /api/v1/users/c99b69bc-2583-473b-9ac2-b9dceb676beb -> 200 does not match user-service contract:
+E     - at '<root>': None is not of type 'object'
+________________________ test_error_envelope_structure ________________________
+tests\unit\test_api_users.py:596: in test_error_envelope_structure
+    assert_matches_contract(
+..\..\contracts\validator.py:248: in assert_matches_contract
+    raise ContractError(
+E   contracts.validator.ContractError: GET /api/v1/users/00000000-0000-0000-0000-000000000000 -> 404 does not match user-service contract:
+E     - at '<root>': None is not of type 'object'
+============================== warnings summary ===============================
+tests/unit/test_api_users.py: 41 warnings
+  C:\Lavoro-Temp\r3recube-KiroEsposito\Exam\techconf-exam\services\user-service\app\domain\models.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    now = datetime.utcnow()
+
+tests/unit/test_api_users.py::test_put_user_valid_200
+tests/unit/test_api_users.py::test_put_user_role_defaults_to_attendee
+  C:\Lavoro-Temp\r3recube-KiroEsposito\Exam\techconf-exam\services\user-service\app\domain\user_service.py:289: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    updated_at=datetime.utcnow(),
+
+tests/unit/test_api_users.py::test_patch_user_partial_200
+tests/unit/test_api_users.py::test_patch_user_updated_at_changes
+tests/unit/test_api_users.py::test_patch_user_own_email_case_variant_ok
+  C:\Lavoro-Temp\r3recube-KiroEsposito\Exam\techconf-exam\services\user-service\app\domain\user_service.py:357: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    updated_at=datetime.utcnow(),
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/unit/test_api_users.py::test_health_ok - contracts.validator.Con...
+FAILED tests/unit/test_api_users.py::test_post_user_valid_201 - contracts.val...
+FAILED tests/unit/test_api_users.py::test_post_user_bad_json_400 - contracts....
+FAILED tests/unit/test_api_users.py::test_post_user_duplicate_email_409 - con...
+FAILED tests/unit/test_api_users.py::test_get_list_default_pagination - contr...
+FAILED tests/unit/test_api_users.py::test_get_user_by_id_200 - contracts.vali...
+FAILED tests/unit/test_api_users.py::test_get_user_unknown_id_404 - contracts...
+FAILED tests/unit/test_api_users.py::test_put_user_valid_200 - contracts.vali...
+FAILED tests/unit/test_api_users.py::test_patch_user_partial_200 - contracts....
+FAILED tests/unit/test_api_users.py::test_error_envelope_structure - contract...
+10 failed, 30 passed, 46 warnings in 0.62s

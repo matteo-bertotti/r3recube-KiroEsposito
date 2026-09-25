@@ -1,0 +1,18 @@
+============================= test session starts =============================
+platform win32 -- Python 3.14.2, pytest-8.3.5, pluggy-1.6.0 -- C:\Python314\python.exe
+cachedir: .pytest_cache
+rootdir: c:\Lavoro-Temp\r3recube-KiroEsposito\Exam\techconf-exam\services\user-service
+configfile: pytest.ini
+plugins: cov-6.1.0
+collecting ... collected 8 items
+
+services\user-service\tests\integration\test_integration.py::test_health_check PASSED [ 12%]
+services\user-service\tests\integration\test_integration.py::test_post_valid_user_returns_201_with_location PASSED [ 25%]
+services\user-service\tests\integration\test_integration.py::test_post_duplicate_email_returns_409 PASSED [ 37%]
+services\user-service\tests\integration\test_integration.py::test_get_created_user_returns_200 PASSED [ 50%]
+services\user-service\tests\integration\test_integration.py::test_put_user_returns_200_and_refreshes_updated_at PASSED [ 62%]
+services\user-service\tests\integration\test_integration.py::test_patch_user_returns_200_and_updates_only_patched_fields PASSED [ 75%]
+services\user-service\tests\integration\test_integration.py::test_delete_user_returns_204 PASSED [ 87%]
+services\user-service\tests\integration\test_integration.py::test_get_after_delete_returns_404 PASSED [100%]
+
+============================= 8 passed in 33.27s ==============================
