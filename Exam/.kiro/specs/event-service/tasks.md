@@ -71,14 +71,14 @@ layer, then tests.
 
 ## Tasks
 
-- [ ] 1. Project scaffold — directory structure and dependencies
+- [x] 1. Project scaffold — directory structure and dependencies
   - Create directories: `app/api/`, `app/domain/`, `app/clients/`, `app/repository/`, `tests/unit/`, `tests/integration/` under `services/event-service/`
   - Add `__init__.py` to every Python package directory (`app/`, `app/api/`, `app/domain/`, `app/clients/`, `app/repository/`, `tests/`, `tests/unit/`, `tests/integration/`)
   - Write `services/event-service/requirements.txt` with pinned versions: `flask==3.1.1`, `requests==2.32.3`, `pytest==8.3.5`, `pytest-cov==6.1.0`, `responses==0.25.7`
   - Add `pytest.ini` inside `services/event-service/` registering the custom marker `req`
   - _Requirements: REQ-EVT-F07, REQ-EVT-F08_
 
-- [ ] 2. Configuration module (`app/config.py`)
+- [-] 2. Configuration module (`app/config.py`)
   - Read `PORT` with `int(os.environ["PORT"])`; raise a descriptive `KeyError`/error if absent or out of the 1–65535 range
   - `USER_SERVICE_URL` defaults to `"http://localhost:5001"`; `STORAGE_BACKEND` defaults to `"memory"`; `DATA_DIR` defaults to `"./data"`
   - Expose a fixed `USER_SERVICE_TIMEOUT = 2` (seconds) constant, never configurable via environment
