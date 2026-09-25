@@ -1,0 +1,15 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Run Service Tests on Python File Save",
+      "trigger": "PostFileSave",
+      "description": "When a .py file inside services/ is saved, runs pytest for that service and reports failures.",
+      "matcher": "services[\\\\/][^\\\\/]+[\\\\/].*\\.py$",
+      "action": {
+        "type": "command",
+        "command": "python -c \"\nimport sys, json, re, subprocess, os\n\ndata = json.load(sys.stdin)\npath = data.get('file', '')\n\nm = re.search(r'services[\\\\/]([^\\\\/]+)[\\\\/]', path)\nif not m:\n    sys.exit(0)\n\nservice = m.group(1)\ntest_dir = os.path.join('services', service, 'tests')\n\nif not os.path.isdir(test_dir):\n    sys.exit(0)\n\nresult = subprocess.run(\n    ['pytest', test_dir, f'--cov=app', '--tb=short', '-q'],\n    capture_output=True, text=True\n)\n\nif result.returncode != 0:\n    print(f'TESTS FAILED for service [{service}]:\\n{result.stdout}\\n{result.stderr}')\n    sys.exit(1)\n\nsys.exit(0)\n\"\n"
+      }
+    }
+  ]
+}
